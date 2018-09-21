@@ -1,6 +1,6 @@
 class apache::install (
 
-	$apache_packages	= hiera('apache_packages')
+	$apache_packages	= hiera('apache_packages'),
 
 	) inherits apache {
 
