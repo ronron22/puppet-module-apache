@@ -5,5 +5,3 @@ apache::install::apache_packages:
   - apache2-data
   - apache2-dev
   - apache2-utils
-  - libapache2-mod-rpaf
-  - libapache2-mod-fastcgi
