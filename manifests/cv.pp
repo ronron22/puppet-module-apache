@@ -1,6 +1,8 @@
 class apache::cv (
+
 	$nodename = hiera('nodename'),
-	) inherits {
+
+	) inherits apache {
 		file { '/var/www/html/antonio/cv/antonio-cv.pdf':
 			ensure    => present,
 			owner     => antonio,
