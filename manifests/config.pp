@@ -6,10 +6,12 @@ class apache::config (
 	$apache_conf_enabled	= hiera('apache_conf_enabled'),
 
 	) inherits apache {
+
 		file { '/etc/apache2/apache2.conf':
 			ensure  => present,
 			content => file("apache/${nodename}/etc/apache2/apache2.conf"),
 		}
+
 		file { "/etc/apache2":
 			ensure => present,
 			sourceselect => all,
@@ -17,6 +19,15 @@ class apache::config (
 			recurse => true,
 			#notify   => Service['apache2'],  
 		}
+
+		file { "/etc/apache2/mods-enabled", :
+			ensure => 'directory',
+		}
+
+		file { "/etc/apache2/conf-enabled", :
+			ensure => 'directory',
+		}
+
 		$apache_conf_enabled.each |String $conf| {
 		file { "/etc/apache2/conf-enabled/${conf}":
 			ensure   => link,
