@@ -7,4 +7,5 @@ class apache::install (
 			package { "${package}":
 			ensure  =>  installed,
 		}
+	}
 }
