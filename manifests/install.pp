@@ -1,7 +1,6 @@
 class apache::install (
 
-	$apache_packages	= [ 'apache2', 'apache2-bin', 'apache2-data', 'apache2-dev', 'apache2-utils', 'libapache2-mod-rpaf' ],
-	$enable						= $::apache::params::enable,
+	$apache_packages	= hiera('apache_packages')
 	$nodename					= hiera('nodename')
 
 	) inherits apache {
