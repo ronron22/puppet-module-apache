@@ -1,7 +1,6 @@
 class apache::install (
 
 	$apache_packages	= hiera('apache_packages')
-	$nodename					= hiera('nodename')
 
 	) inherits apache {
 
