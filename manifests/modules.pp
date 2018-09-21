@@ -13,6 +13,7 @@ class apache::modules (
 			mode			=> '0644',
 			target		=> "/etc/apache2/mods-available/${mod}",
 			#notify   => Service['apache2'],
+			require => File["/etc/apache2/mods-enabled"],
 		}
 	}
 }
