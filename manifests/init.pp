@@ -4,5 +4,4 @@ class apache {
 	include apache::modules
 	include apache::vhosts
 	include apache::service
-	include apache::cv
 }
