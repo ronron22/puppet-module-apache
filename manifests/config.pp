@@ -20,11 +20,11 @@ class apache::config (
 			#notify   => Service['apache2'],  
 		}
 
-		file { "/etc/apache2/mods-enabled", :
+		file { "/etc/apache2/mods-enabled":
 			ensure => 'directory',
 		}
 
-		file { "/etc/apache2/conf-enabled", :
+		file { "/etc/apache2/conf-enabled":
 			ensure => 'directory',
 		}
 
