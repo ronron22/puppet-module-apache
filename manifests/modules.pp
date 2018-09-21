@@ -4,6 +4,11 @@ class apache::modules (
 	$apache_mods_enabled	= hiera('apache_mods_enabled'),
 
 	) inherits apache {
+
+	file { "/etc/apache2/mods-enabled":
+		ensure => 'directory',
+	}
+
 	$apache_mods_enabled.each |String $mod| {
 		file { "/etc/apache2/mods-enabled/${mod}":
 			ensure		=> link,
