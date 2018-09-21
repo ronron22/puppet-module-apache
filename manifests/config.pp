@@ -22,12 +22,12 @@ class apache::config (
 
 		file { "/etc/apache2/mods-enabled":
 			ensure => 'directory',
-			mode    =>  0755,
+			mode    =>  '0755',
 		}
 
 		file { "/etc/apache2/conf-enabled":
 			ensure => 'directory',
-			mode    =>  0755,
+			mode    =>  '0755',
 		}
 
 		$apache_conf_enabled.each |String $conf| {
