@@ -38,6 +38,7 @@ class apache::config (
 			mode     => '0644',
 			target   => "/etc/apache2/conf-available/${conf}",
 			#notify   => Service['apache2'],
+			require => File["/etc/apache2/conf-enabled"],
 		}
 	}
 }
