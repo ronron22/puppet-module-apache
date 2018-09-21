@@ -4,6 +4,12 @@ class apache::vhosts (
 	$apache_sites_enabled = hiera('apache_sites_enabled'),
 
 	) inherits apache {
+		
+		file { '/etc/apache2/sites-enabled':
+			ensure  => directory,
+			mode    =>  '0755',
+		}
+
 		$apache_sites_enabled.each |String $site| {
 			file { "/etc/apache2/sites-enabled/${site}.conf":
 				ensure   => link,
@@ -12,6 +18,7 @@ class apache::vhosts (
 				mode     => '0644',
 				target   => "/etc/apache2/sites-available/${site}.conf",
 				#notify   => Service['apache2'],
+			  require => File["/etc/apache2/sites-enabled"],
 			}
 	}
 }
