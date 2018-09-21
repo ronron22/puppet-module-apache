@@ -1,12 +1,11 @@
 class apache::config (
 
-	$enable = $::apache::params::enable,
-	$stopped = $::apache::params::stopped,
-	$nodename = hiera('nodename'),
-	$apache_conf_enabled = hiera('apache_conf_enabled'),
+	$enable								= $::apache::params::enable,
+	$stopped							= $::apache::params::stopped,
+	$nodename							= hiera('nodename'),
+	$apache_conf_enabled	= hiera('apache_conf_enabled'),
 
 	) inherits apache {
-		#include apache::services
 		file { '/etc/apache2/apache2.conf':
 			ensure  => present,
 			content => file("apache/${nodename}/etc/apache2/apache2.conf"),
