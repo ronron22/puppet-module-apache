@@ -21,10 +21,12 @@ class apache::config (
 		}
 
 		file { "/etc/apache2/mods-enabled":
+			ensure => present,
 			ensure => 'directory',
 		}
 
 		file { "/etc/apache2/conf-enabled":
+			ensure => present,
 			ensure => 'directory',
 		}
 
