@@ -1,7 +1,10 @@
 ---
-apache::install::apache_packages:
-  - apache2
-  - apache2-bin
-  - apache2-data
-  - apache2-dev
-  - apache2-utils
+apache_conf_enabled:
+  - charset.conf
+  - javascript-common.conf
+  - localized-error-pages.conf
+  - munin.conf
+  - other-vhosts-access-log.conf
+  - security.conf
+  - serve-cgi-bin.conf
+  - zabbix.conf
